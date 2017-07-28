@@ -14,4 +14,10 @@ func TestThreeSumClosest(t *testing.T) {
 			2,
 		},
 	}
+	for _, c := range cases {
+		got := threeSumClosest(c.input, c.target)
+		if got != c.want {
+			t.Errorf("threeSumClosest(%q) == %d, want %d", c.input, got, c.want)
+		}
+	}
 }

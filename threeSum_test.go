@@ -1,6 +1,9 @@
 package leetcode
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestThreeSum(t *testing.T) {
 	cases := []struct {
@@ -14,5 +17,11 @@ func TestThreeSum(t *testing.T) {
 				[]int{-1, -1, 2},
 			},
 		},
+	}
+	for _, c := range cases {
+		got := threeSum(c.input)
+		if !reflect.DeepEqual(got, c.want) {
+			t.Errorf("threeSum(%q) == %q, want %q", c.input, got, c.want)
+		}
 	}
 }
